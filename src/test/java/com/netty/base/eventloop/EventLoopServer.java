@@ -1,4 +1,4 @@
-package com.netty.netty.eventloop;
+package com.netty.base.eventloop;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -9,7 +9,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.Charset;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunbin

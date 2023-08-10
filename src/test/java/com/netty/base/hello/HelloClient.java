@@ -1,4 +1,4 @@
-package com.netty.netty.hello;
+package com.netty.base.hello;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;

@@ -1,4 +1,4 @@
-package com.netty.netty.handler;
+package com.netty.base.handler;
 
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,7 +6,6 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 import io.netty.channel.embedded.EmbeddedChannel;
-import org.checkerframework.checker.units.qual.C;
 
 /**
  * @author sunbin

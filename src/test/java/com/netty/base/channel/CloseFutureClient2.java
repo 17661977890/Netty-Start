@@ -1,4 +1,4 @@
-package com.netty.netty.channel;
+package com.netty.base.channel;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -17,15 +17,16 @@ import java.util.Scanner;
 
 /**
  * @author sunbin
- * closeFuture: 处理关闭之后的操作
+ * 优雅关闭
+ * channel close之后 客户端没有完全关闭，因为nioEventLoopGroup中还有部分线程没有结束。服务器端也应该类似处理
  */
 @Slf4j
-public class CloseFutureClient {
+public class CloseFutureClient2 {
 
     public static void main(String[] args) throws InterruptedException {
-
+        NioEventLoopGroup nioEventLoopGroup = new NioEventLoopGroup();
         ChannelFuture channelFuture = new Bootstrap()
-                .group(new NioEventLoopGroup())
+                .group(nioEventLoopGroup)
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
@@ -66,6 +67,8 @@ public class CloseFutureClient {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
                 log.info("同步方式：处理关闭之后的操作");
+                // 优雅关闭
+                nioEventLoopGroup.shutdownGracefully();
             }
         });
     }

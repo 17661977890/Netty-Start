@@ -1,7 +1,5 @@
-package com.netty.netty.eventloop;
+package com.netty.base.eventloop;
 
-import io.netty.channel.DefaultEventLoop;
-import io.netty.channel.DefaultEventLoopGroup;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import lombok.extern.slf4j.Slf4j;

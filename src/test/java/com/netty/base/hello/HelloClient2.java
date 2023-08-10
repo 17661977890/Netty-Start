@@ -1,7 +1,6 @@
-package com.netty.netty.eventloop;
+package com.netty.base.hello;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -14,11 +13,11 @@ import java.net.InetSocketAddress;
  * @date 2023年08月09日 10:21:00
  * @description TODO
  */
-public class EventLoopClient {
+public class HelloClient2 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Channel channel = new Bootstrap()
+        new Bootstrap()
                 .group(new NioEventLoopGroup())
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<NioSocketChannel>() {
@@ -29,9 +28,7 @@ public class EventLoopClient {
                 })
                 .connect(new InetSocketAddress("localhost",8080))
                 .sync()
-                .channel();
-        System.out.println(channel);
-        // 这里打断点执行表达式发送数据
-        System.out.println("");
+                .channel()
+                .writeAndFlush("hello world");
     }
 }
