@@ -79,7 +79,7 @@ public interface MySerializer {
         }
     }
 
-    // 针对之前报出：不支持 Class类转json的异常 做处理
+    // Json转换器：针对之前报出：不支持 Class类转json的异常 做处理
     class ClassCodec implements JsonSerializer<Class<?>>, JsonDeserializer<Class<?>> {
         @Override
         public Class<?> deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
